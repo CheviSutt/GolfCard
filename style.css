@@ -1,0 +1,22 @@
+.card {
+  display: flex;
+}
+.card .left {
+  padding: 15px;
+}
+.right {
+  display: flex;
+}
+.right .column {
+  border: 1px solid #dadfea;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.right .column .cheader {
+  padding-bottom: 5px;
+}
+.right .column .holeinput {
+  width: 25px;
+}
