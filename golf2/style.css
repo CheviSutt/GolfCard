@@ -1,28 +1,50 @@
+.body,
+html {
+  background-image: url("golfbackground.jpg");
+}
 .card {
   display: flex;
 }
 .card .left {
   padding: 15px;
+  color: dodgerblue;
 }
-.right {
+.card .left .pheader {
+  color: lawngreen;
+  margin-bottom: 63px;
+}
+.card .right {
   display: flex;
 }
-.right .column {
+.card .right .column {
   border: 1px solid #dadfea;
-  padding: 15px;
+  padding: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.right .column .cheader {
+.card .right .column .cheader {
   padding-bottom: 5px;
 }
-.right .column .holeinput {
+.card .right .column .holeinput {
   width: 25px;
+  height: 17px;
+}
+.boxR {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .scoreTot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 2px solid;
-  color: dodgerblue;
-  height: 200px;
-  width: 800px;
+  color: lawngreen;
+  height: 30px;
+  width: 50px;
+}
+.play {
+  border: 1px solid lawngreen;
+  margin-bottom: 2px;
 }

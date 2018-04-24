@@ -9,7 +9,7 @@ function loadDoc() {
         if (this.readyState == 4 && this.status == 200) {
             allCourses = JSON.parse(this.responseText);
             console.log(allCourses);
-            for(let i =0; i < allCourses.courses.length; i++){
+            for(let i = 0; i < allCourses.courses.length; i++){
                 $(".courseDropdown").append("<option value='" + allCourses.courses[i].id +"'>" +
                     allCourses.courses[i].name +"</option>");
             }
@@ -53,33 +53,51 @@ function setTee(teeindex) {
 
 function buildCard() {
     for(let p = 1; p <= numPlayers; p++){
-        $(".left").append("<div>Player" + p + "</div>");//Original Code
-        //(".left").append("<div>Player" + p + "</div>").get(0).contentEditable = true; //original code w editable added
+        $(".left").append("<div class='play'>Player" + p + "</div>");
+        $(".play").get(0).contentEditable = true;
+//Original Code
         //$(".left").append("<div><div class='player' id='pName'>Player" + p + "</div></div>");
         //$(".player").get(0).contentEditable = "true"; //not so working edit
         //$(".left").append("<input type='text' class='player'>" + p + "</in>");
         // $(".player").get(0).contentEditable = "true";
         //$(".left").append("<div class='player'>player" + p + "</div><button onclick='player()'>Enter Name</button>");
         for (let h = 0; h < selcourse.data.holes.length; h++) {
-        $("#c" + h).append("<input id='p"+ p +"h" + h +"'type='text' class='holeinput'>");
+            $("#c" + h).append("<input id='p"+ p +"h" + h +"'type='text' class='holeinput'>");
         }
+        $(".boxR").append("<div id='score' class='scoreTot'></div>");
     }
+
 }
 
 
-/*function createCard() {
-    for(let i = 0; i < course.holes.length; i++){
-        $(".right").append("<div id='col"+ i +"' class='column'><div class='cheader'>"+ course.holes[i].name +"</div></div>");
-    }
+document.addEventListener("onkeyup", function () {
+    let dtest = $('input[id^="p"]').val();
+    console.log(dtest);
+});
 
-    fillCard();
+
+
+/*function calculate(){
+    var boxone = document.getElementById("numberone").value;
+    var boxtwo = document.getElementById("numbertwo").value;
+    var finalAnswer = runThis(boxone, boxtwo);
+    document.getElementById("answer").innerHTML = finalAnswer;
 }
-
-function fillCard() {
-    for(let p = 1; p <= numPlayers; p++){
-        $(".left").append("<div class='playerlabel'>player" + p + "</div>");
-        for(let h = 0; h < course.holes.length; h++){
-            $("#col" + h).append("<input class='holeinput' id='p"+ p +"h"+ h +"'  type='text'>")
-        }
-    }
+function runThis(value1, value2){
+    console.log(value1);
+    return Number(value1) + Number(value2);
 }*/
+
+
+
+function scoreFinal() {
+    var boxone = document.getElementById("p").value;
+    var boxtwo = document.getElementById("h").value;
+    var plyScore = runThis(boxone, boxtwo);
+    document.getElementById("score").innerHTML = plyScore;
+}
+
+function runThis(value1, value2){
+    console.log(value1, value2);
+    return Number(value1) + Number(value2);
+}
