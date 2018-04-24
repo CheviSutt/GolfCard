@@ -53,11 +53,10 @@ function setTee(teeindex) {
 
 function buildCard() {
     for(let p = 1; p <= numPlayers; p++){
-        $(".left").append("<div class='play'>Player" + p + "</div>");
-        $(".play").get(0).contentEditable = true;
-//Original Code
-        //$(".left").append("<div><div class='player' id='pName'>Player" + p + "</div></div>");
-        //$(".player").get(0).contentEditable = "true"; //not so working edit
+        $(".left").append("<div class='play'>Player" + p +
+            "<div class='fa fa-trash' onclick='removePlayer(this)'></div></div>").get(0).contentEditable = true; //Original Code
+        //$(".play").get(0).contentEditable = true; // Only selects first class of "play"
+
         //$(".left").append("<input type='text' class='player'>" + p + "</in>");
         // $(".player").get(0).contentEditable = "true";
         //$(".left").append("<div class='player'>player" + p + "</div><button onclick='player()'>Enter Name</button>");
@@ -67,6 +66,14 @@ function buildCard() {
         $(".boxR").append("<div id='score' class='scoreTot'></div>");
     }
 
+}
+
+function removePlayer(theeElement) {
+    let grandpa = $(theeElement).parent();
+    $(grandpa).slideUp('1000', function () {
+        //fires after slide up is done
+        $(grandpa).remove();
+    })
 }
 
 
