@@ -51,8 +51,23 @@ function setTee(teeindex) {
    buildCard();
 }
 
-//<div class='fa fa-trash' onclick='removePlayer("+ p +")'></div> research remove
+function buildCard() {
+    for (let p = 1; p <= numPlayers; p++) {
+        $(".left").append("<div class='playa" + p + "'><span onclick='delPlaya(" + p + ")' class='fa fa-trash'></span><span>Player" + p + "</span></div>");
+        for (let h = 0; h < selcourse.data.holes.length; h++) {
+            $("#c" + h).append("<input id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
+        }
+        $(".boxR").append("<div id='score' class='scoreTot'></div>");
+    }
+}
 
+function delPlaya(incPlayer) {
+    $(".playa" + incPlayer).remove();
+}
+
+//<div class='fa fa-trash' onclick='removePlayer("+ p +")'></div> research remove for add method
+
+//buildCard() and removePlayer() original functionality-code below
 /*function buildCard() {
     for(let p = 1; p <= numPlayers; p++){
         $(".left").append("<div contenteditable='true' class='playa'>player" + p +
@@ -63,7 +78,7 @@ function setTee(teeindex) {
         $(".boxR").append("<div id='score' class='scoreTot'></div>");
     }
 
-}*/
+}
 
 function removePlayer(theeElement) {
     let grandpa = $(theeElement).parent();
@@ -71,43 +86,11 @@ function removePlayer(theeElement) {
         //fires after slide up is done
         $(grandpa).remove();
     })
-}
+}*/
 
-
+//code  first attempt to target inputs below
 /*document.addEventListener("onkeyup", function () {
     let dtest = $('input[id^="p"]').val();
     console.log(dtest);
 });*/
 
-function buildCard() {
-    for (let p = 1; p <= numPlayers; p++) {
-        $(".left").append("<div class='playa" + p + "'><span onclick='delPlaya(" + p + ")' class='fa fa-trash'></span><span>Player" + p + "</span></div>");
-        for (let h = 0; h < selcourse.data.holes.length; h++) {
-            $("#c" + h).append("<input id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
-        }
-        $(".boxR").append("<div id='score' class='scoreTot'></div>");
-    }
-
-
-}
-
-
-function delPlaya(incPlayer) {
-    $(".playa" + incPlayer).remove();
-}
-
-
-
-
-
-function scoreFinal() {
-    var boxone = document.getElementById("p").value;
-    var boxtwo = document.getElementById("h").value;
-    var plyScore = runThis(boxone, boxtwo);
-    document.getElementById("score").innerHTML = plyScore;
-}
-
-function runThis(value1, value2){
-    console.log(value1, value2);
-    return Number(value1) + Number(value2);
-}
