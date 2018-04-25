@@ -1,6 +1,6 @@
 let numPlayers = 4;
 let allCourses;
-let selcourse
+let selcourse;
 loadDoc();
 
 function loadDoc() {
@@ -53,9 +53,9 @@ function setTee(teeindex) {
 
 function buildCard() {
     for (let p = 1; p <= numPlayers; p++) {
-        $(".left").append("<div class='playa" + p + "'><span onclick='delPlaya(" + p + ")' class='fa fa-trash'></span><span>Player" + p + "</span></div>");
+        $(".left").append("<div contenteditable='true' class='playa" + p + "'><span onclick='delPlaya(" + p + ")' class='fa fa-trash'></span><span>Player" + p + "</span></div>");
         for (let h = 0; h < selcourse.data.holes.length; h++) {
-            $("#c" + h).append("<input id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
+            $("#c" + h).append("<input onkeyup='addScore(p)' id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
         }
         $(".boxR").append("<div id='score' class='scoreTot'></div>");
     }
@@ -64,6 +64,31 @@ function buildCard() {
 function delPlaya(incPlayer) {
     $(".playa" + incPlayer).remove();
 }
+
+//Trying to figure out inputs below
+let numberofholes = 6;
+
+function addScore(myval){
+    console.log(myval);
+    let tempscore = 0;
+    for(let i = 1; i <= numberofholes; i++){
+        let invalue = Number($("#p" + myval + "h" + i).val());
+        tempscore += invalue;
+    }
+
+    $(".total" + myval).html(tempscore);
+}
+
+/*function deletePlayer(playernum){
+    $(".player" + playernum).remove();
+    $(".total" + playernum).remove();
+    for(let i = 1; i <= numberofholes; i++){
+        $("#p" + playernum + "h" + i).remove();
+    }
+}*/
+
+<!--<input onkeyup="addScore(1)" type="text" id="p1h1">--> <!--add p instead in golf game-->
+
 
 //<div class='fa fa-trash' onclick='removePlayer("+ p +")'></div> research remove for add method
 
