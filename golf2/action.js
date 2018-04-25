@@ -51,22 +51,19 @@ function setTee(teeindex) {
    buildCard();
 }
 
-function buildCard() {
-    for(let p = 1; p <= numPlayers; p++){
-        $(".left").append("<div class='play'>Player" + p +
-            "<div class='fa fa-trash' onclick='removePlayer(this)'></div></div>").get(0).contentEditable = true; //Original Code
-        //$(".play").get(0).contentEditable = true; // Only selects first class of "play"
+//<div class='fa fa-trash' onclick='removePlayer("+ p +")'></div> research remove
 
-        //$(".left").append("<input type='text' class='player'>" + p + "</in>");
-        // $(".player").get(0).contentEditable = "true";
-        //$(".left").append("<div class='player'>player" + p + "</div><button onclick='player()'>Enter Name</button>");
+/*function buildCard() {
+    for(let p = 1; p <= numPlayers; p++){
+        $(".left").append("<div contenteditable='true' class='playa'>player" + p +
+            "<div class='fa fa-trash' onclick='(this)'></div></div>"); //Original Code
         for (let h = 0; h < selcourse.data.holes.length; h++) {
             $("#c" + h).append("<input id='p"+ p +"h" + h +"'type='text' class='holeinput'>");
         }
         $(".boxR").append("<div id='score' class='scoreTot'></div>");
     }
 
-}
+}*/
 
 function removePlayer(theeElement) {
     let grandpa = $(theeElement).parent();
@@ -77,23 +74,29 @@ function removePlayer(theeElement) {
 }
 
 
-document.addEventListener("onkeyup", function () {
+/*document.addEventListener("onkeyup", function () {
     let dtest = $('input[id^="p"]').val();
     console.log(dtest);
-});
+});*/
+
+function buildCard() {
+    for (let p = 1; p <= numPlayers; p++) {
+        $(".left").append("<div class='playa" + p + "'><span onclick='delPlaya(" + p + ")' class='fa fa-trash'></span><span>Player" + p + "</span></div>");
+        for (let h = 0; h < selcourse.data.holes.length; h++) {
+            $("#c" + h).append("<input id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
+        }
+        $(".boxR").append("<div id='score' class='scoreTot'></div>");
+    }
 
 
-
-/*function calculate(){
-    var boxone = document.getElementById("numberone").value;
-    var boxtwo = document.getElementById("numbertwo").value;
-    var finalAnswer = runThis(boxone, boxtwo);
-    document.getElementById("answer").innerHTML = finalAnswer;
 }
-function runThis(value1, value2){
-    console.log(value1);
-    return Number(value1) + Number(value2);
-}*/
+
+
+function delPlaya(incPlayer) {
+    $(".playa" + incPlayer).remove();
+}
+
+
 
 
 
