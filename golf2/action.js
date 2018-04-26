@@ -58,7 +58,12 @@ function buildCard() {
             $("#c" + h).append("<input onkeyup='addScore(p)' id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
         }
         $(".boxR").append("<div id='score' class='scoreTot'></div>");
+
     }
+}
+
+function addPlaya(incPlayer) {
+    $(".playa" + incPlayer).add();
 }
 
 function delPlaya(incPlayer) {
@@ -67,6 +72,7 @@ function delPlaya(incPlayer) {
 
 //Trying to figure out inputs below
 let numberofholes = 6;
+
 
 function addScore(myval){
     console.log(myval);
