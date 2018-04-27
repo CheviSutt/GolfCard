@@ -61,7 +61,6 @@ function buildCard() {
         }
 
     }
-   // $(".pheader").append("<button onclick='addPlaya(" + p + ")'></button>");
 }
 
 function addPlaya(incPlayer) {
@@ -72,9 +71,6 @@ function addPlaya(incPlayer) {
 function delPlaya(incPlayer) {
     $(".playa" + incPlayer).remove();
 }
-
-//Trying to figure out inputs below
-//
 
 function addScore(myval){
     console.log(myval);
