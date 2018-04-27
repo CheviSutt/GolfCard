@@ -1,9 +1,20 @@
 .body,
 html {
+  padding-top: 7%;
   background-image: url("golfbackground.jpg");
+  justify-content: center;
+}
+.backBoard {
+  border: 1px solid dodgerblue;
+  padding: 10px;
+  justify-content: center;
 }
 .card {
   display: flex;
+  border: 1px solid #dadfea;
+  width: 95%;
+  overflow: scroll;
+  padding-left: 5%;
 }
 .card .left {
   padding: 15px;
@@ -39,7 +50,7 @@ html {
   flex-direction: column;
   align-items: center;
 }
-.scoreTot {
+.scorebox {
   display: flex;
   flex-direction: column;
   align-items: center;
