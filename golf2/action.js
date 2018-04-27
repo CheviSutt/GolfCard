@@ -1,6 +1,7 @@
 let numPlayers = 4;
 let allCourses;
 let selcourse;
+//let p = numPlayers;
 loadDoc();
 
 function loadDoc() {
@@ -54,35 +55,33 @@ function setTee(teeindex) {
 function buildCard() {
     for (let p = 1; p <= numPlayers; p++) {
         $(".left").append("<div contenteditable='true' class='playa" + p + "'><span onclick='delPlaya(" + p + ")' class='fa fa-trash'></span><span>Player" + p + "</span></div>");
+        $(".boxR").append("<div class='scorebox scoreTot"+p+"'></div>");
         for (let h = 0; h < selcourse.data.holes.length; h++) {
-            $("#c" + h).append("<input onkeyup='addScore(p)' id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
+            $("#c" + h).append("<input onkeyup='addScore(" + p + ")' id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
         }
-        $(".boxR").append("<div id='score' class='scoreTot'></div>");
 
     }
 }
 
 function addPlaya(incPlayer) {
     $(".playa" + incPlayer).add();
+    console.log(p);
 }
 
 function delPlaya(incPlayer) {
     $(".playa" + incPlayer).remove();
 }
 
-//Trying to figure out inputs below
-let numberofholes = 6;
-
-
 function addScore(myval){
     console.log(myval);
+    let numberofholes = selcourse.data.holes.length;
     let tempscore = 0;
-    for(let i = 1; i <= numberofholes; i++){
+    for(let i = 0; i < numberofholes; i++){
         let invalue = Number($("#p" + myval + "h" + i).val());
         tempscore += invalue;
     }
-
-    $(".total" + myval).html(tempscore);
+    console.log(tempscore);
+    $(".scoreTot" + myval).html(tempscore);
 }
 
 /*function deletePlayer(playernum){

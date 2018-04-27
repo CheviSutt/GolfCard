@@ -1,26 +1,49 @@
 .body, html{
+  padding-top: 7%;
   background-image: url("golfbackground.jpg");
+  justify-content: center;
+}
+
+.backBoard{
+  border: 1px solid lawngreen;
+  padding: 10px;
+  justify-content: center;
+}
+
+.courseDropdown{
+  cursor: pointer;
+}
+
+.teeDropdown{
+  cursor: pointer;
 }
 
 .card {
   display: flex;
+  border: 1px solid dodgerblue;
+  overflow: scroll;
+
+
 
   .left {
+    padding: 10px;
+    color: lawngreen;
 
     .pheader {
       color: lawngreen;
       margin-bottom: 63px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
     }
-    padding: 15px;
-    color: dodgerblue;
+
   }
 
   .right {
-
     display: flex;
 
     .column {
-      border: 1px solid #dadfea;
+      border: 1px solid dodgerblue;
       padding: 10px;
       display: flex;
       flex-direction: column;
@@ -29,6 +52,19 @@
 
       .cheader {
         padding-bottom: 5px;
+        color: lawngreen;
+      }
+
+      .yds{
+        color: lawngreen;
+      }
+
+      .par{
+        color: lawngreen;
+      }
+
+      .hcp{
+        color: lawngreen;
       }
 
       .holeinput {
@@ -41,34 +77,42 @@
     }
   }
 }
+::-webkit-scrollbar {
+  display: none;
+}
 
 .boxR{
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  padding: 10px;
+  margin-top: 75px;
 }
 
-.scoreTot {
+.scorebox {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 2px solid;
-  color: lawngreen;
-  height: 30px;
+  color: dodgerblue;
+  height: 27px;
   width: 50px;
+  justify-content: center;
+  margin: 3px;
 }
 
-/*.playa{
+.playa{
   display: flex;
   padding: 4px;
-  border: 1px solid lawngreen;
-  margin-bottom: 2px;
-}*/
+  border: 1px solid greenyellow;
+  align-items: center;
+  margin: 8px;
+}
 
 .fa-trash {
-  color: #dadfea;
+  color: greenyellow;
   cursor: pointer;
   margin-left: 4px;
+  padding-right: 4px;
   font-size: 13px;
 }
