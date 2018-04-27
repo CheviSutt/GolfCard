@@ -56,7 +56,7 @@ function buildCard() {
         $(".left").append("<div class='playaFloss' id='playa" + p + "'><span onclick='delPlaya(" + p + ")' class='fa fa-trash'></span><span contenteditable='true'>Player" + p + "</span></div>");
         $(".boxR").append("<div class='scorebox scoreTot"+p+"'></div>");
         for (let h = 0; h < selcourse.data.holes.length; h++) {
-            $("#c" + h).append("<input onkeyup='addScore(" + p + ")' id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
+            $("#c" + h).append("<input type='number' min='0' onkeyup='addScore(" + p + ")' id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
         }
 
     }
@@ -95,5 +95,6 @@ function addScore(myval){
         }
         $(".boxR").append("<div id='score' class='scoreTot'></div>");
     }
-}
+
+}*/
 
