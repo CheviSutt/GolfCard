@@ -1,7 +1,6 @@
 let numPlayers = 4;
 let allCourses;
 let selcourse;
-//let p = numPlayers;
 loadDoc();
 
 function loadDoc() {
@@ -14,7 +13,7 @@ function loadDoc() {
                 $(".courseDropdown").append("<option value='" + allCourses.courses[i].id +"'>" +
                     allCourses.courses[i].name +"</option>");
             }
-         }
+        }
     };
 
     xhttp.open("GET", "https://uxcobra.com/golfapi/courses.txt", true);
@@ -54,7 +53,7 @@ function setTee(teeindex) {
 
 function buildCard() {
     for (let p = 1; p <= numPlayers; p++) {
-        $(".left").append("<div contenteditable='true' class='playa" + p + "'><span onclick='delPlaya(" + p + ")' class='fa fa-trash'></span><span>Player" + p + "</span></div>");
+        $(".left").append("<div class='playaFloss' id='playa" + p + "'><span onclick='delPlaya(" + p + ")' class='fa fa-trash'></span><span contenteditable='true'>Player" + p + "</span></div>");
         $(".boxR").append("<div class='scorebox scoreTot"+p+"'></div>");
         for (let h = 0; h < selcourse.data.holes.length; h++) {
             $("#c" + h).append("<input onkeyup='addScore(" + p + ")' id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
@@ -69,7 +68,9 @@ function addPlaya(incPlayer) {
 }
 
 function delPlaya(incPlayer) {
+    $("#playa" + incPlayer).remove();
     $(".playa" + incPlayer).remove();
+    $(".scoreTot" + incPlayer).remove();
 }
 
 function addScore(myval){
@@ -84,19 +85,6 @@ function addScore(myval){
     $(".scoreTot" + myval).html(tempscore);
 }
 
-/*function deletePlayer(playernum){
-    $(".player" + playernum).remove();
-    $(".total" + playernum).remove();
-    for(let i = 1; i <= numberofholes; i++){
-        $("#p" + playernum + "h" + i).remove();
-    }
-}*/
-
-<!--<input onkeyup="addScore(1)" type="text" id="p1h1">--> <!--add p instead in golf game-->
-
-
-//<div class='fa fa-trash' onclick='removePlayer("+ p +")'></div> research remove for add method
-
 //buildCard() and removePlayer() original functionality-code below
 /*function buildCard() {
     for(let p = 1; p <= numPlayers; p++){
@@ -107,20 +95,5 @@ function addScore(myval){
         }
         $(".boxR").append("<div id='score' class='scoreTot'></div>");
     }
-
 }
-
-function removePlayer(theeElement) {
-    let grandpa = $(theeElement).parent();
-    $(grandpa).slideUp('1000', function () {
-        //fires after slide up is done
-        $(grandpa).remove();
-    })
-}*/
-
-//code  first attempt to target inputs below
-/*document.addEventListener("onkeyup", function () {
-    let dtest = $('input[id^="p"]').val();
-    console.log(dtest);
-});*/
 
