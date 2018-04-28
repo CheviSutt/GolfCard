@@ -1,6 +1,7 @@
 let numPlayers = 4;
 let allCourses;
 let selcourse;
+let par;
 loadDoc();
 
 function loadDoc() {
@@ -85,7 +86,10 @@ function addScore(myval){
     $(".scoreTot" + myval).html(tempscore);
 }
 
-//buildCard() and removePlayer() original functionality-code below
+function parTot(){
+    
+}
+//buildCard() original functionality-code below
 /*function buildCard() {
     for(let p = 1; p <= numPlayers; p++){
         $(".left").append("<div contenteditable='true' class='playa'>player" + p +
@@ -95,6 +99,5 @@ function addScore(myval){
         }
         $(".boxR").append("<div id='score' class='scoreTot'></div>");
     }
-
 }*/
 

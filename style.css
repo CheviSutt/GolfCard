@@ -5,7 +5,7 @@ html {
   justify-content: center;
 }
 .backBoard {
-  border: 1px solid lawngreen;
+  border: 2px solid lawngreen;
   padding: 10px;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.4);
@@ -19,9 +19,10 @@ html {
 }
 .card {
   display: flex;
-  border: 1px solid dodgerblue;
+  border: 2px solid dodgerblue;
   overflow: scroll;
   border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0);
 }
 .card .left {
   padding: 10px;
@@ -43,17 +44,16 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 3px;
 }
 .card .right .column .cheader {
   padding-bottom: 5px;
-  color: lawngreen;
+  color: green;
 }
 .card .right .column .yds {
   color: lawngreen;
 }
 .card .right .column .par {
-  color: lawngreen;
+  color: green;
 }
 .card .right .column .hcp {
   color: lawngreen;
@@ -86,8 +86,8 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid lawngreen;
-  color: dodgerblue;
+  border: 2px solid dodgerblue;
+  color: black;
   height: 27px;
   width: 50px;
   justify-content: center;
@@ -97,12 +97,13 @@ html {
 .playaFloss {
   display: flex;
   padding: 4px;
-  border: 1px solid greenyellow;
+  border: 2px solid dodgerblue;
   align-items: center;
   margin: 8px;
+  border-radius: 2px;
 }
 .fa-trash {
-  color: lawngreen;
+  color: green;
   cursor: pointer;
   margin-left: 4px;
   padding-right: 4px;
