@@ -2,7 +2,6 @@ let numPlayers = 4;
 let allCourses;
 let selcourse;
 let par = 0;
-//let singlePlater = Number($("#p" + "h")); //Test To change Individual par score color
 
 loadDoc();
 
@@ -53,7 +52,7 @@ function setTee(teeindex) {
         par += parseInt(mycourse[i].teeBoxes[teeindex].par);
         console.log(par);
     }
-    $(".parBox").append(par); //Appends after score totals
+    $(".parBox").append("<div class='parBox'>Total:"+par+"</div>"); //Appends after score totals
     //$(".boxR").append(par);
    buildCard();
 }
@@ -67,9 +66,7 @@ function buildCard() {
             $("#c" + h).append("<input type='number' min='0' onkeyup='addScore(" + p + ")' id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
         }
     }
-
 }
-
 
 function delPlaya(incPlayer) {
     $("#playa" + incPlayer).remove();
@@ -110,12 +107,3 @@ function addScore(myval){
 }*/
 
 
-//Test To change Individual par score color
-// if(tempscore + singlePlater <= par){
-//     console.log("good job");
-//     $(".scorebox").css('background-color', '#ADFF2F');
-// }
-// else if (tempscore + singlePlater > par){
-//     console.log("You suck");
-//     $(".scorebox").css('background-color', '#DC143C');
-// }
