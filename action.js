@@ -1,7 +1,9 @@
 let numPlayers = 4;
 let allCourses;
 let selcourse;
-let par;
+let par = 0;
+//let singlePlater = Number($("#p" + "h")); //Test To change Individual par score color
+
 loadDoc();
 
 function loadDoc() {
@@ -48,25 +50,26 @@ function setTee(teeindex) {
             "<div class='par'>Par:" + mycourse[i].teeBoxes[teeindex].par + "</div>"  +
             "<div class='hcp'>HCP:" + mycourse[i].teeBoxes[teeindex].hcp + "</div>"  +
             "</div>");
+        par += parseInt(mycourse[i].teeBoxes[teeindex].par);
+        console.log(par);
     }
+    $(".parBox").append(par); //Appends after score totals
+    //$(".boxR").append(par);
    buildCard();
 }
 
 function buildCard() {
+
     for (let p = 1; p <= numPlayers; p++) {
         $(".left").append("<div class='playaFloss' id='playa" + p + "'><span onclick='delPlaya(" + p + ")' class='fa fa-trash'></span><span contenteditable='true'>Player" + p + "</span></div>");
         $(".boxR").append("<div class='scorebox scoreTot"+p+"'></div>");
         for (let h = 0; h < selcourse.data.holes.length; h++) {
             $("#c" + h).append("<input type='number' min='0' onkeyup='addScore(" + p + ")' id='p" + p + "h" + h + "'type='text' class='holeinput playa" + p + "'>");
         }
-
     }
+
 }
 
-function addPlaya(incPlayer) {
-    $(".playa" + incPlayer).add();
-    console.log(p);
-}
 
 function delPlaya(incPlayer) {
     $("#playa" + incPlayer).remove();
@@ -82,13 +85,18 @@ function addScore(myval){
         let invalue = Number($("#p" + myval + "h" + i).val());
         tempscore += invalue;
     }
-    console.log(tempscore);
-    $(".scoreTot" + myval).html(tempscore);
+    if(tempscore <= par){
+        console.log("good job");
+        $(".scoreTot" + myval).css('background-color', '#ADFF2F');
+    }
+    else if (tempscore > par){
+        console.log("You suck");
+        $(".scoreTot" + myval).css('background-color', '#DC143C');
+    }
+     console.log(tempscore);
+     $(".scoreTot" + myval).html(tempscore);
 }
 
-function parTot(){
-    
-}
 //buildCard() original functionality-code below
 /*function buildCard() {
     for(let p = 1; p <= numPlayers; p++){
@@ -101,3 +109,13 @@ function parTot(){
     }
 }*/
 
+
+//Test To change Individual par score color
+// if(tempscore + singlePlater <= par){
+//     console.log("good job");
+//     $(".scorebox").css('background-color', '#ADFF2F');
+// }
+// else if (tempscore + singlePlater > par){
+//     console.log("You suck");
+//     $(".scorebox").css('background-color', '#DC143C');
+// }
